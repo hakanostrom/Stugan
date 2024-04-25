@@ -4,21 +4,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Table(name = "bokningar")
 @Entity
-@Getter
-@Setter
+@Data
 public class Bokning {
     @Id
     @GeneratedValue
-    private int ID;
+    private Long ID;
+    private Long stuga_id;
 
-    private String name;
-
+    private String namn;
     private String telefon;
     private String epost;
-    private int stug_id;
 }
