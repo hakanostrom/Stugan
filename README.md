@@ -8,6 +8,8 @@ Mappen _Backend_ har undermappen _stugan_ som innehåller ett projekt i Spring B
 
 Eftersom databasen är in-memory så kommer alla lagda bokningar att försvinna vid omstart (eftersom bokningarna lagras i databasen).
 
+API för backend är initialt inställt på kommunikation över port 8081.
+
 ## Appstart 
 Ändra om önskvärt inloggningsuppgifterna under `application.properties`.
 
@@ -25,3 +27,5 @@ Förutsättning för att köra är att NodeJs (inklusive NPM) är installerat p�
 Initiera frontend-appen genom `npm init` (från backend-projektets root-mapp)
 
 Starta frontend genom `node app.js` 
+
+Frontend återfinns på `http://localhost:3000`. Det är också härigenom som hela lösningen körs.

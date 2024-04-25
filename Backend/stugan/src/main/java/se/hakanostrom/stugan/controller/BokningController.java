@@ -1,5 +1,6 @@
 package se.hakanostrom.stugan.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import se.hakanostrom.stugan.service.BokningService;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("bokning")
 public class BokningController {
@@ -43,7 +45,9 @@ public class BokningController {
     @PostMapping
     public ResponseEntity<Bokning> create(@RequestBody Bokning bokning) {
 
+        log.info("Före");
         var res = bokningService.sparaBokning(bokning);
+        log.info("efter");
 
         return ResponseEntity.ok(res);
     }
