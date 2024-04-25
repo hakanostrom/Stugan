@@ -1,7 +1,19 @@
-package se.hakanostrom.stugan.dto;
+package se.hakanostrom.stugan.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Table(name = "stugor")
+@Entity
 public class Stuga {
-    public int ID;
+
+    @Id
+    @GeneratedValue
+    private int ID;
+
+    private String name;
 
     public String getName() {
         return name;
@@ -19,5 +31,5 @@ public class Stuga {
         this.ID = ID;
     }
 
-    public String name;
+
 }
