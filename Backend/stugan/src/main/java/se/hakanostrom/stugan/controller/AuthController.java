@@ -25,6 +25,6 @@ public class AuthController {
         if (ADMIN_USER.equals(user) && ADMIN_PASS.equals(pass))
             return ResponseEntity.ok(API_KEY);
         else
-            return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 }
