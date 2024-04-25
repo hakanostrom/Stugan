@@ -1,4 +1,4 @@
-package se.hakanostrom.stugan.rest;
+package se.hakanostrom.stugan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("bokning")
-public class BokningResource {
+public class BokningController {
 
     @Autowired
     private BokningRepository bokningRepository;

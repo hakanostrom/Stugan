@@ -1,4 +1,4 @@
-package se.hakanostrom.stugan.rest;
+package se.hakanostrom.stugan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("stuga")
-public class StugeResource {
+public class StugaController {
 
     @Autowired
     private StugaService stugaService;
