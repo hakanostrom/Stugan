@@ -9,13 +9,21 @@
 <a href="admin.html">Jag är en admin</a>
 
     <h1>Stugan</h1>
-    <p>Välj den fjällstuga du vill boka</p>
+    <p>Välj den fjällstuga du vill boka, och när.</p>
 
     <select name="stugor" id="stugorSelect"></select>
-
-    <button onclick="bokaStuga()">Boka</button>
+    <input type="date" id="bokningsdatum" name="bokningsdatum" value="2024-04-26" min="2024-04-26" />
 
     <br /><br />
+
+    <p>Uppgifter för bokning</p>
+    Namn: <input type="text" id="bokareNamn"><br />
+    Telefon: <input type="tel" id="bokareTelefon"><br />
+    Epost: <input type="email" id="bokareEpost"><br />
+
+    <br /><br />
+
+    <button onclick="bokaStuga()">Boka</button>
 
     <span id="coonfirmationPlaceholder"></span>
 </body>
