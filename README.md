@@ -24,7 +24,7 @@ Frontend består av en server i NodeJs (express) som servar statisk html+javascr
 
 Förutsättning för att köra är att NodeJs (inklusive NPM) är installerat på systemet.
 
-Initiera frontend-appen genom `npm init` (från backend-projektets root-mapp)
+Initiera frontend-appen genom `npm install` (från backend-projektets root-mapp)
 
 Starta frontend genom `node app.js` 
 
