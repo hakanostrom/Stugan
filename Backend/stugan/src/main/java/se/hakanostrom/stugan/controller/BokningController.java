@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import se.hakanostrom.stugan.entity.Bokning;
 import se.hakanostrom.stugan.repository.BokningRepository;
 import se.hakanostrom.stugan.service.BokningService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -43,12 +45,14 @@ public class BokningController {
 
     @CrossOrigin("*")
     @PostMapping
-    public ResponseEntity<Bokning> create(@RequestBody Bokning bokning) {
+    public ResponseEntity<Optional<Bokning>> create(@RequestBody Bokning bokning) {
 
-        log.info("Före");
         var res = bokningService.sparaBokning(bokning);
-        log.info("efter");
 
-        return ResponseEntity.ok(res);
+        if (res.isEmpty())
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Dubbelbokat! Det finns redan en bokning på denna stuga denna dag");
+            //return new ResponseEntity<>(res, HttpStatus.CONFLICT);
+        else
+            return ResponseEntity.ok(res);
     }
 }

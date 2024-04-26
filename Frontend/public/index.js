@@ -39,8 +39,15 @@ const bokaStuga = async() => {
       });
 
       let resJson = await response.json()
-      document.getElementById("coonfirmationPlaceholder").innerText = "Tack för din bokning av stuga nummer " + resJson.stuga_id
-    }
+
+      if(response.status == 409){
+        document.getElementById("coonfirmationPlaceholder").innerText = resJson.message
+      }else{
+        document.getElementById("coonfirmationPlaceholder").innerText = "Tack för din bokning av stuga nummer " + resJson.stuga_id  
+      }
+
+
+  }
 }
 
 

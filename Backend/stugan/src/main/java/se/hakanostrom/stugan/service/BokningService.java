@@ -3,9 +3,10 @@ package se.hakanostrom.stugan.service;
 import se.hakanostrom.stugan.entity.Bokning;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BokningService {
-    Bokning sparaBokning(Bokning bokning);
+    Optional<Bokning> sparaBokning(Bokning bokning);
 
     List<Bokning> listaBokningar();
 }

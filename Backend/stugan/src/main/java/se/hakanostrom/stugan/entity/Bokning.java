@@ -14,6 +14,7 @@ public class Bokning {
     @GeneratedValue
     private Long ID;
     private Long stuga_id;
+    private String datum;
 
     private String namn;
     private String telefon;
