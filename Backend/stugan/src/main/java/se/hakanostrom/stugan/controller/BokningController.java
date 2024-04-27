@@ -49,9 +49,8 @@ public class BokningController {
 
         // Borde hellre lösas med ett filter
         if (!API_KEY.equals(apikey))
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Ogiltigt eller ingen api-nyckel");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Ogiltig eller ingen api-nyckel");
 
-        log.info("Id på stuga att lista bokningar för: " + id);
         var res = bokningService.listaBokningarPerStuga(id);
 
         return ResponseEntity.ok(res);
