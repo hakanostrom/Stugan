@@ -35,4 +35,9 @@ public class BokningServiceImpl implements BokningService {
     public List<Bokning> listaBokningar() {
         return (List<Bokning>) bokningRepository.findAll();
     }
+
+    @Override
+    public List<Bokning> listaBokningarPerStuga(Long stugaId) {
+        return (List<Bokning>) bokningRepository.findByStuga(stugaId);
+    }
 }

@@ -35,10 +35,24 @@ public class BokningController {
     public ResponseEntity<List<Bokning>> getAll(@RequestHeader(value = AUTH_TOKEN_HEADER_NAME, required = false) String apikey) {
 
         // Borde hellre lösas med ett filter
-        if (apikey == null || !apikey.equals(API_KEY))
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        if (!API_KEY.equals(apikey))
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Ogiltigt eller ingen api-nyckel");
 
         var res = bokningService.listaBokningar();
+
+        return ResponseEntity.ok(res);
+    }
+
+    @CrossOrigin("*")
+    @GetMapping("stuga/{id}")
+    public ResponseEntity<List<Bokning>> getByStuga(@RequestHeader(value = AUTH_TOKEN_HEADER_NAME) String apikey, @PathVariable Long id) {
+
+        // Borde hellre lösas med ett filter
+        if (!API_KEY.equals(apikey))
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Ogiltigt eller ingen api-nyckel");
+
+        log.info("Id på stuga att lista bokningar för: " + id);
+        var res = bokningService.listaBokningarPerStuga(id);
 
         return ResponseEntity.ok(res);
     }

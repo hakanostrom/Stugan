@@ -9,4 +9,6 @@ public interface BokningService {
     Optional<Bokning> sparaBokning(Bokning bokning);
 
     List<Bokning> listaBokningar();
+
+    List<Bokning> listaBokningarPerStuga(Long stugaId);
 }
