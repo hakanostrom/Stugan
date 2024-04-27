@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Stugan
+        </title>
+    </head>
+<body>
+
+    <h1>Stugan admin inloggning</h1>
+    <p>Logga in för att se stugbokningar</p>
+    
+    Användarnamn:
+    <input type="text" id="username">
+<br>
+    Lösenoord:
+    <input type="text" id="password">
+
+    <br><br>
+
+    <button onclick="doLogin()">Logga in</button>
+    
+    <br /><br />
+    
+    <span id="coonfirmationPlaceholder"></span>
+</body>
+</html>
+
+<script>
+const doLogin = async() => {
+
+    let username = document.getElementById("username").value
+    let password = document.getElementById("password").value
+
+    if(username== "" || password == "")
+      alert("Fyll i samtliga inloggningsuppgifter")
+    else{
+        let response = await fetch('http://localhost:8081/auth?user='+username+'&pass='+password, {
+            method: 'POST'
+        })
+
+        if(response.status == 401){
+            let resJson = await response.json()
+            document.getElementById("coonfirmationPlaceholder").innerText = resJson.message;
+        }else{
+            let apinyckel = await response.text()
+
+            sessionStorage.setItem("apinyckel", apinyckel);
+            window.location.replace("admin.html");
+            
+        }
+            
+    }
+}
+
+// ===============
+
+// App runtime starts here
+
+let apinyckel = sessionStorage.getItem("apinyckel")
+if(apinyckel.length > 0)
+    window.location.replace("admin.html")
+
+</script>

@@ -1,8 +1,11 @@
 const apikeyHeaderObj = {
     method: 'GET',
     headers: {
-        'API-KEY': '4f251971-5bd7-4f33-8aa0-8b9bbc809bb8',
+        'API-KEY': sessionStorage.getItem("apinyckel"),
     },
+}
+const logout = () => {
+    sessionStorage.removeItem("apinyckel");
 }
 
 const listaStugor = async() => {
@@ -17,6 +20,11 @@ const listaStugor = async() => {
         stuga.innerHTML = "<h2>" + stugaElement.name + "</h2>"
         
         let responseBokningar = await fetch('http://localhost:8081/bokning/stuga/' + stugaElement.id, apikeyHeaderObj)
+        
+        if(responseBokningar.status == 401){
+            let resBokningarJson = await responseBokningar.json()
+            document.getElementById("coonfirmationPlaceholder").innerText = resBokningarJson.message;
+        }
         let resBokningJson = await responseBokningar.json()
 
         if(resBokningJson.length == 0){
