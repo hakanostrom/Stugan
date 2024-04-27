@@ -54,4 +54,9 @@ const bokaStuga = async() => {
 
 // App runtime starts here
 
+let datePicker = document.getElementById('bokningsdatum')
+let today = new Date().toISOString().split('T')[0]
+datePicker.value = today
+datePicker.min = today
+
 listaStugor()
