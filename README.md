@@ -22,6 +22,8 @@ Projekt Lombok har används för diverse förenklande annoteringar. För källko
 Starta från kommandoprompten genom `./gradlew bootRun` (från backend-projektets root-mapp)
 Alternativt genom IntelliJ´s "Run" 
 
+Kör enhetstester genpm `./gradlew clean test`.
+
 # Frontend
 
 Frontend består av en server i NodeJs (express) som servar statisk html+javascript. Anledningen till server är att få CORS och restanrop från webbläsaren att lira.
