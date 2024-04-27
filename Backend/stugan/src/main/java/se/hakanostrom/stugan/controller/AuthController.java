@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("auth")
@@ -20,11 +23,12 @@ public class AuthController {
 
     @CrossOrigin("*")
     @PostMapping
-    public ResponseEntity<String> login(@RequestParam String user, @RequestParam String pass) {
+    public ResponseEntity<String> login(@RequestParam Optional<String> user, @RequestParam Optional<String> pass) {
 
-        if (ADMIN_USER.equals(user) && ADMIN_PASS.equals(pass))
-            return ResponseEntity.ok(API_KEY);
-        else
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        if (!ADMIN_USER.equals(user.orElse("")) || !ADMIN_PASS.equals(pass.orElse("")))
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Ogiltigt användarnamn och lösenod");
+      
+        return ResponseEntity.ok(API_KEY);
+
     }
 }

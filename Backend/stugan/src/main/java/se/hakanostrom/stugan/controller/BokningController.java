@@ -51,7 +51,6 @@ public class BokningController {
 
         if (res.isEmpty())
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Dubbelbokat! Det finns redan en bokning på denna stuga denna dag");
-            //return new ResponseEntity<>(res, HttpStatus.CONFLICT);
         else
             return ResponseEntity.ok(res);
     }
