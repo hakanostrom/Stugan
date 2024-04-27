@@ -1,4 +1,3 @@
-console.log("Här är jag!")
 
 const listaStugor = async() => {
     let stugorSelect = document.getElementById("stugorSelect")
@@ -49,19 +48,6 @@ const bokaStuga = async() => {
 
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ===============
