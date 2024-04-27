@@ -10,6 +10,12 @@ Eftersom databasen är in-memory så kommer alla lagda bokningar att försvinna 
 
 API för backend är initialt inställt på kommunikation över port 8081.
 
+### Lombok
+
+Projekt Lombok har används för diverse förenklande annoteringar. För källkoden i IntelliJ har pluginet "Lombok" därför använts. Samt att inställningen _Enable annotation processing_ har aktiverats.
+
+> [Setting up Lombok with Eclipse and Intellij - Baeldung](https://www.baeldung.com/lombok-ide) 
+
 ## Appstart 
 Ändra om önskvärt inloggningsuppgifterna under `application.properties`.
 
@@ -27,5 +33,6 @@ Förutsättning för att köra är att NodeJs (inklusive NPM) är installerat p�
 Initiera frontend-appen genom `npm install` (från backend-projektets root-mapp)
 
 Starta frontend genom `node app.js` 
+(Starta helst backend före frontend)
 
 Frontend återfinns på `http://localhost:3000`. Det är också härigenom som hela lösningen körs.
