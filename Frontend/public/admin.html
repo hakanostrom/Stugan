@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             Stugan
         </title>
+        <link href="bootstrap.min.css" rel="stylesheet">
     </head>
 <body>
-<a href="index.html" onclick="logout()">Logga ut</a>
+    <div class="container">
 
-    <h1>Stugan admin</h1>
-    <p>Nedan visas genomförda stugbokningar.</p>
-    
-    <div id="bokningarPlaceholder"></div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
 
-    <br /><br />
-    
-    <span id="coonfirmationPlaceholder"></span>
+                <br /><br />
+
+                <a type="button" class="btn btn-sm btn-light" href="index.html" onclick="logout()">Logga ut</a>
+
+                <br /><br />
+
+                <h1>Stugan admin</h1>
+                <p>Nedan visas genomförda stugbokningar.</p>
+
+                <div id="bokningarPlaceholder"></div>
+
+                <br /><br />
+                
+                <div class="alert alert-danger" id="coonfirmationPlaceholder" role="alert" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>
-
-<script src="admin.js"></script>

@@ -1,34 +1,69 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             Stugan
         </title>
+        <link href="bootstrap.min.css" rel="stylesheet">
     </head>
 <body>
-<a href="login.html">Jag är en admin</a>
+    <div class="container">
 
-    <h1>Stugan</h1>
-    <p>Välj den fjällstuga du vill boka, och när.</p>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <br /><br />
 
-    <select name="stugor" id="stugorSelect"></select>
-    <input type="date" id="bokningsdatum" name="bokningsdatum"  />
+                <a type="button" class="btn btn-sm btn-light" href="login.html">admin</a>
 
-    <br /><br />
+                <br /><br />
 
-    <p>Uppgifter för bokning</p>
-    Namn: <input type="text" id="bokareNamn"><br />
-    Telefon: <input type="tel" id="bokareTelefon"><br />
-    Epost: <input type="email" id="bokareEpost"><br />
+                <h1>Stugan</h1>
+                <p>Välj den fjällstuga du vill boka, och när.</p>
 
-    <br /><br />
 
-    <button onclick="bokaStuga()">Boka</button>
+                <select class="form-select" id="stugorSelect">
+                </select>
 
-    <br /><br />
-    
-    <span id="coonfirmationPlaceholder"></span>
+                <br>
+                  
+                <input class="form-control" type="date" id="bokningsdatum" name="bokningsdatum"  />
+
+                <br /><br />
+
+                <form>
+                    <h3>Uppgifter för bokning</h3>
+                    <div class="mb-3">
+                        <label for="bokareNamn" class="form-label">Namn</label>
+                        <input class="form-control" type="text" id="bokareNamn">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bokareTelefon" class="form-label">Telefon</label>
+                        <input class="form-control" type="tel" id="bokareTelefon">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bokareEpost" class="form-label">E-post</label>
+                        <input class="form-control" type="email" id="bokareEpost">
+                    </div>
+
+                    <br />
+
+                    <button class="btn btn-primary" onclick="bokaStuga()">Boka</button>
+                </form>
+                <br /><br />
+                
+                <div class="alert" id="coonfirmationPlaceholder" role="alert" style="display: none;">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
-
-<script src="index.js"></script>

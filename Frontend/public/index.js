@@ -39,10 +39,15 @@ const bokaStuga = async() => {
 
       let resJson = await response.json()
 
+      let alertDiv = document.getElementById("coonfirmationPlaceholder")
+      alertDiv.style.display = 'block'
+      
       if(response.status == 409){
-        document.getElementById("coonfirmationPlaceholder").innerText = resJson.message
+        alertDiv.className = "alert alert-danger"
+        alertDiv.innerText = resJson.message
       }else{
-        document.getElementById("coonfirmationPlaceholder").innerText = "Tack för din bokning av stuga nummer " + resJson.stuga_id  
+        alertDiv.className = "alert alert-success"
+        alertDiv.innerText = "Tack för din bokning av stuga nummer " + resJson.stuga_id  
       }
 
 

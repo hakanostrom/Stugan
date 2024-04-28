@@ -23,7 +23,9 @@ const listaStugor = async() => {
         
         if(responseBokningar.status == 401){
             let resBokningarJson = await responseBokningar.json()
-            document.getElementById("coonfirmationPlaceholder").innerText = resBokningarJson.message;
+            let alertDiv = document.getElementById("coonfirmationPlaceholder")
+            alertDiv.style.display = 'block'
+            alertDiv.innerText = resBokningarJson.message;
         }
         let resBokningJson = await responseBokningar.json()
 
