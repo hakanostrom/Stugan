@@ -22,11 +22,13 @@ Projekt Lombok har används för diverse förenklande annoteringar. För källko
 Starta från kommandoprompten genom `./gradlew bootRun` (från backend-projektets root-mapp)
 Alternativt genom IntelliJ´s "Run" 
 
-Kör enhetstester genpm `./gradlew clean test`.
-
 # Frontend
 
 Frontend består av en server i NodeJs (express) som servar statisk html+javascript. Anledningen till server är att få CORS och restanrop från webbläsaren att lira.
+
+### Inloggning
+
+Den admin-delen av frontend där alla bokningar visas kräver inloggning. Dessa uppgifter specificeras i *application.properties* och är default `admin/admin`.
 
 ## Appstart
 
@@ -38,3 +40,19 @@ Starta frontend genom `node app.js`
 (Starta helst backend före frontend)
 
 Frontend återfinns på `http://localhost:3000`. Det är också härigenom som hela lösningen körs.
+
+# Test
+
+Kör enhetstester av Spring Boot genom `./gradlew clean test`. i rootmappen för backend-delen av projektet. En sammanställning görs till `build/reports/tests/test/index.html`.
+
+## Scenarion
+
+Förslag på testscenarion (i den ordning de står). Dessa får i dagsläget genomföras manuellt men skulle framgent kunna automatiseras via tex Selenium.
+
+- Öppna Frontend och boka en stuga, verifiera att bokningen går igenom.
+- Öppna Frontend och boka samma stuga, samma datum. Verifiera att bokningen ej gått igenom på grund av dubbelbokning.
+- Öppna Frontend och boka samma stuga,  ett annat datum, verifiera att bokningen går igenom.
+- Öppna Frontend och boka en annan stuga, verifiera att bokningen går igenom.
+- Klicka fram admin-sidan och logga in med felaktiga inloggningsuppgifter. Verifiera att inloggningen ej går igenom och att admin-sidan inte är åtkomlig.
+- Klicka fram admin-sidan och logga in med korrekta inloggningsuppgifter. Verifiera att inloggningen går igenom och att admin-sidan är åtkomlig.
+- Klicka fram admin-sidan och verifiera att den lista som nu visas stämmer överens med de bokningar som lagts i tidigare steg.
