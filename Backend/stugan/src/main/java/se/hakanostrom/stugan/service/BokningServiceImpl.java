@@ -17,6 +17,7 @@ public class BokningServiceImpl implements BokningService {
     @Autowired
     private BokningRepository bokningRepository;
 
+    // Vid sparning kontrolleras om det finns dubbelbokningar (det aktuella datumet)
     @Override
     public Optional<Bokning> sparaBokning(Bokning bokning) {
 

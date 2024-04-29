@@ -13,6 +13,9 @@ const listaStugor = async() => {
     });   
 }
 
+// Boka stuga med rest-anrrop. Validera att bokningsuppgifter är ifyllda.
+// Resultatet av anropet visas i en bootstrap-alert. Gick anropet bra sätts en ok-klass på denna.
+// Gick bokningen inte bra sätts en danger-klass. Tex vid 409 (Conflict), dvs dubbelbokning.
 const bokaStuga = async() => {
     let stugorSelect = document.getElementById("stugorSelect")
     
@@ -32,7 +35,8 @@ const bokaStuga = async() => {
             datum: bokningsdatum
         }
 
-        let response = await fetch('http://localhost:8081/bokning', {
+        // Hårdkodad url (basePath) kanske är hållbart i längden
+        let response = await fetch( properties.basePath + '/bokning', {
         method: 'POST',
         body: JSON.stringify(bokning),
         headers: {
@@ -62,9 +66,11 @@ const bokaStuga = async() => {
 
 // App runtime starts here
 
+// Tillåt inte att bokningsdatum väljs i dåtiden
 let datePicker = document.getElementById('bokningsdatum')
 let today = new Date().toISOString().split('T')[0]
 datePicker.value = today
 datePicker.min = today
 
+// Initiera listan med stugor
 listaStugor()

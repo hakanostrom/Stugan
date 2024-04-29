@@ -19,6 +19,7 @@
                 <h1>Stugan admin inloggning</h1>
                 <p>Logga in för att se stugbokningar</p>
                 
+                <!-- Använd inte formuläret för dess submit-funktion -->
                 <form onsubmit="return false">
                     <div class="mb-3">
                         <label for="username" class="form-label">Användarnamn</label>
@@ -44,7 +45,12 @@
             </div>
             </div>
     <script src="bootstrap.bundle.min.js"></script>
+    <script src="properties.js"></script>
     <script>
+
+        // Genomför login genom att skicka user/pass och få tillbaka en api-nyckel som sparas i sessionstorage.
+        // Är inloggningsuppgifterna felaktiga visas en bootstrap-alert om detta (som i annat fall är dold).
+        // Vid lyckad inloggning dirigeras användaren om till admin-sidan
         const doLogin = async() => {
         
             let username = document.getElementById("username").value
@@ -77,6 +83,8 @@
         
         // App runtime starts here
         
+        // Finns redan en api-nyckel i sessionstorage (dvs finns en inloggning sedan tidigare) så
+        // dirigeras användaren direkt till admin-sidan.
         let apinyckel = sessionStorage.getItem("apinyckel")
         if(apinyckel && apinyckel.length > 0)
             window.location.replace("admin.html")

@@ -11,6 +11,9 @@ import java.util.Optional;
 @RequestMapping("auth")
 public class AuthController {
 
+    // Läs in inloggningsuppgifter från application.properties
+    // Nu finns det bara EN admin med EN apinyckel. Kanske inte så skalbart eller praktiskt i övrigt att ha det hårdkodat.
+
     @Value("${admin_user}")
     private String ADMIN_USER;
 

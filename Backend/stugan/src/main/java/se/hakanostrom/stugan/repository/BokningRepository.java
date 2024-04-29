@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import se.hakanostrom.stugan.entity.Bokning;
 
+// Står för "interfacet" mot databasen. Två extrafunktioner har lagts till (förutom vanliga/inbyggda CRUD).
 @Repository
 public interface BokningRepository extends CrudRepository<Bokning, Long> {
 
