@@ -53,7 +53,7 @@
             if(username== "" || password == "")
               alert("Fyll i samtliga inloggningsuppgifter")
             else{
-                let response = await fetch('http://localhost:8081/auth?user='+username+'&pass='+password, {
+                let response = await fetch( properties.basePath + '/auth?user='+username+'&pass='+password, {
                     method: 'POST'
                 })
         

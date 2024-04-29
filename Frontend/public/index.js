@@ -1,8 +1,11 @@
-
+// Hämta stugor med rest-anrop och lägg till i dropdown ett element per stuga.
+// Stugans index blir dropdownens värde
 const listaStugor = async() => {
+  
+
     let stugorSelect = document.getElementById("stugorSelect")
 
-    let response = await fetch('http://localhost:8081/stuga')
+    let response = await fetch( properties.basePath + '/stuga')
     let resJson = await response.json()
     resJson.forEach(element => {
         let option = new Option(element.name, element.id)
