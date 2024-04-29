@@ -61,3 +61,15 @@ Förslag på testscenarion (i den ordning de står). Dessa får i dagsläget gen
 - Klicka fram admin-sidan och logga in med felaktiga inloggningsuppgifter. Verifiera att inloggningen ej går igenom och att admin-sidan inte är åtkomlig.
 - Klicka fram admin-sidan och logga in med korrekta inloggningsuppgifter. Verifiera att inloggningen går igenom och att admin-sidan är åtkomlig.
 - Klicka fram admin-sidan och verifiera att den lista som nu visas stämmer överens med de bokningar som lagts i tidigare steg.
+
+# Docker
+
+Både frontend samt backend är förberedda att byggas med varsin `Dockerfile`.
+
+Detta har gjorts och publicerats till docker-hub samt att en docker-compose för detta lagts i rootmappen för repot.
+
+Så hela projektet kan startas genom att i root-mappen köra
+
+`docker compose up`
+
+(förutsatt att Docker finns installerat på datorn)
