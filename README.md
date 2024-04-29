@@ -3,7 +3,12 @@ Boka en stuga i fjällen!
 - Som en turist vill jag kunna boka en stuga via webben och få en bekräftelse på att stugan är bokad.
 - Som en administratör vill jag kunna se alla bokningar av stugor.
 
+## Upplägg
+
+Projektet är uppdelat i två delar med ett backend/server som exponerar ett rest-api för att sköta ingående operationer. Den andra delen är frontend/klient som står för själva gränssnittet mot turisten/administratören och som utför de nödvändiga rest-anropen.
+
 # Backend
+
 Mappen _Backend_ har undermappen _stugan_ som innehåller ett projekt i Spring Boot för backendet. Databas H2 in-memory. Projektet har byggts upp genom att använda IntelliJ 2024.1 (med pluginet _Lombok_) .
 
 Eftersom databasen är in-memory så kommer alla lagda bokningar att försvinna vid omstart (eftersom bokningarna lagras i databasen).
