@@ -1,0 +1,19 @@
+version: '3'
+services:
+    frontend:
+        container_name: stugan-frontend
+        image: hakanostrom/stugan-frontend:latest
+        ports:
+            - 3000:3000
+        networks:
+            - spring-cloud-network
+    backend:
+        container_name: stugan-backend
+        image: hakanostrom/stugan-backend:latest
+        ports:
+            - 8081:8081
+        networks:
+            - spring-cloud-network
+networks:
+    spring-cloud-network:
+        driver: bridge
