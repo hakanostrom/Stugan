@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.hakanostrom.stugan.entity.Bokning;
 import se.hakanostrom.stugan.error.StuganResponseException;
-import se.hakanostrom.stugan.repository.BokningRepository;
 import se.hakanostrom.stugan.service.BokningService;
 
 import java.util.List;
@@ -18,8 +17,6 @@ import java.util.Optional;
 @RequestMapping("bokning")
 public class BokningController {
 
-    @Autowired
-    private BokningRepository bokningRepository;
 
     @Autowired
     private BokningService bokningService;
